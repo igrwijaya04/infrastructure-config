@@ -1,0 +1,27 @@
+version: '3'
+ 
+services:
+  mysqldb:
+    image: mysql:5.7
+    container_name: mysql-db
+    environment:
+      MYSQL_ROOT_PASSWORD: root_local
+      MYSQL_USER: root_local
+      MYSQL_PASSWORD: root_local
+    ports:
+      - "3306:3306"
+    restart: always
+    volumes:
+      - F:/Infrastructure/ImageVolume/Mysql:/var/lib/mysql
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin
+    links:
+      - mysqldb
+    environment:
+      PMA_HOST: mysqldb
+      PMA_PORT: 3306
+      PMA_ARBITRARY: 1
+    restart: always
+    ports:
+      - 8081:80
