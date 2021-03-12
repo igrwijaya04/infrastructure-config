@@ -1,0 +1,15 @@
+version: '3.4'
+services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2017-latest
+    container_name: sqlserver
+    environment:
+     - ACCEPT_EULA=Y
+     - SA_PASSWORD=Temp123*
+    ports:
+     - "1433:1433"
+    restart: always
+    volumes:
+     - /Users/Ackerman/Work/Infrastructure/DockerVolume/SqlServer/data:/var/opt/mssql/data
+     - /Users/Ackerman/Work/Infrastructure/DockerVolume/SqlServer/secrets:/var/opt/mssql/secrets
+     - /Users/Ackerman/Work/Infrastructure/DockerVolume/SqlServer/log:/var/opt/mssql/log
