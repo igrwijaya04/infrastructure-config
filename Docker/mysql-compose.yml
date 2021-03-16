@@ -12,7 +12,7 @@ services:
       - "3306:3306"
     restart: always
     volumes:
-      - F:/Infrastructure/ImageVolume/Mysql:/var/lib/mysql
+      - /Users/Ackerman/Work/Infrastructure/DockerVolume/Mysql:/var/lib/mysql
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     container_name: phpmyadmin
